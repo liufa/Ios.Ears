@@ -28,9 +28,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [AppDelegate getDelegate].mainViewController = self;
     // Do any additional setup after loading the view, typically from a nib.
     currentStatus = STATUS_NONE;
-    [self registerAccount];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,7 +45,7 @@
     
     [[NetworkClient sharedClient] registerAccount: [[UIDevice currentDevice].identifierForVendor UUIDString]
                                               lat: [AppDelegate getDelegate].currentLat
-                                              lng: [AppDelegate getDelegate].currentLat
+                                              lng: [AppDelegate getDelegate].currentLng
                                           success:^(id responseObject) {
 
                                               [MBProgressHUD hideAllHUDsForView: self.view animated: YES];

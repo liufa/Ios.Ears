@@ -40,6 +40,8 @@
                            uuid, @"applicationId",
                            [NSString stringWithFormat: @"%f,%f", lat, lng], @"coordinates",
                            nil];
+    
+    NSLog(@"params = %@", param);
     [self GET: @"api/Account/RegisterCrew"
    parameters: param
       success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {

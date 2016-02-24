@@ -7,9 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
 
 @interface AppDelegate () <CLLocationManagerDelegate>
-
+{
+    BOOL                isFirstFlag;
+}
 @end
 
 @implementation AppDelegate
@@ -17,6 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    isFirstFlag = NO;
     [self startUpdatingLocation];
     return YES;
 }
@@ -83,25 +87,10 @@
         self.currentLat = current.coordinate.latitude;
         self.currentLng = current.coordinate.longitude;
         
-        if(TEST_FLAG)
+        if(!isFirstFlag)
         {
-            if(self.currentLat >= 90)
-            {
-                self.currentLat = 90;
-            }
-            else if(self.currentLat <= -90)
-            {
-                self.currentLat = -90;
-            }
-            
-            if(self.currentLng >= 90)
-            {
-                self.currentLng = 90;
-            }
-            else if(self.currentLng <= -90)
-            {
-                self.currentLng = -90;
-            }
+            isFirstFlag = YES;
+            [(ViewController*)self.mainViewController registerAccount];            
         }
     }
 }

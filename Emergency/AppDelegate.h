@@ -15,6 +15,7 @@
 @property (nonatomic, strong) CLLocationManager     *locationManager;
 @property (nonatomic, assign) float                 currentLat;
 @property (nonatomic, assign) float                 currentLng;
+@property (nonatomic, retain) id                    mainViewController;
 
 +(AppDelegate*) getDelegate;
 @end
