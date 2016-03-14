@@ -20,7 +20,7 @@ typedef enum
     
 } STATUS_TYPE;
 
-#define TIMER_DURATION          10
+#define TIMER_DURATION          3
 
 
 /////////////////////////// MESSAGES. ///////////////////////////////////////
