@@ -54,6 +54,8 @@
     if(locationManager == nil)
     {
         locationManager=[[CLLocationManager alloc] init];
+        locationManager.allowsBackgroundLocationUpdates = YES;
+        locationManager.pausesLocationUpdatesAutomatically = NO;
         locationManager.delegate=self;
         locationManager.distanceFilter=kCLDistanceFilterNone;
         locationManager.desiredAccuracy=kCLLocationAccuracyBestForNavigation;
